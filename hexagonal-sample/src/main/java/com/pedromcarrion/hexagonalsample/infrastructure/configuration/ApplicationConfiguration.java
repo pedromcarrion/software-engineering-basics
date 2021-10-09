@@ -1,6 +1,7 @@
 package com.pedromcarrion.hexagonalsample.infrastructure.configuration;
 
 import com.pedromcarrion.hexagonalsample.application.ad.AdDtoMapper;
+import com.pedromcarrion.hexagonalsample.application.ad.ChangeAdStatusUseCase;
 import com.pedromcarrion.hexagonalsample.application.ad.GetAdUseCase;
 import com.pedromcarrion.hexagonalsample.domain.ad.AdRepository;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,13 @@ public class ApplicationConfiguration {
         return new GetAdUseCase(adRepository, adDtoMapper);
     }
 
-    @Bean AdDtoMapper adDtoMapper(){
+    @Bean
+    public AdDtoMapper adDtoMapper(){
         return new AdDtoMapper();
+    }
+
+    @Bean
+    public ChangeAdStatusUseCase changeAdStatusUseCase(){
+        return new ChangeAdStatusUseCase();
     }
 }

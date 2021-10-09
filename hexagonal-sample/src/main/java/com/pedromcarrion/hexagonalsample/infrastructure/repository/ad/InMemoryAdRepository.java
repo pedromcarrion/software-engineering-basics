@@ -17,6 +17,7 @@ public class InMemoryAdRepository implements AdRepository {
 
     @Override
     public Optional<Ad> find(AdId adId) {
+
         return ads.stream().filter(ad -> ad.getId() == adId).findFirst();
     }
 }

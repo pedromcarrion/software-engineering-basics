@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AdController {
+public class GetAdController {
 
     private final GetAdUseCase getAdUseCase;
     private final AdResponseMapper adResponseMapper;
 
-    public AdController(GetAdUseCase getAdUseCase, AdResponseMapper adResponseMapper) {
+    public GetAdController(GetAdUseCase getAdUseCase, AdResponseMapper adResponseMapper) {
         this.getAdUseCase = getAdUseCase;
         this.adResponseMapper = adResponseMapper;
     }
 
-    @GetMapping("/ads/{id}")
+    @GetMapping("/v1/ads/{id}")
     public ResponseEntity<AdResponse> GetAd(@PathVariable String id) {
         try {
             GetAdQuery getAdQuery = new GetAdQuery(id);
             AdDto adDto = getAdUseCase.execute(getAdQuery);
             return ResponseEntity.ok(adResponseMapper.map(adDto));
         } catch (Exception anyException) {
-            //TODO Log
+            //TODO Log with id
             return ResponseEntity.internalServerError().build();
         }
     }

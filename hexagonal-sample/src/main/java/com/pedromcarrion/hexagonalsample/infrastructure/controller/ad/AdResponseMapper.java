@@ -4,6 +4,6 @@ import com.pedromcarrion.hexagonalsample.application.ad.AdDto;
 
 public class AdResponseMapper {
     public AdResponse map(AdDto adDto) {
-        return null;
+        return new AdResponse(adDto.getId(), adDto.getTitle());
     }
 }
