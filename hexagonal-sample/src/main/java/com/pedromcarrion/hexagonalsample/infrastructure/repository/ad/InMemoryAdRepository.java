@@ -4,20 +4,28 @@ import com.pedromcarrion.hexagonalsample.domain.ad.Ad;
 import com.pedromcarrion.hexagonalsample.domain.ad.AdId;
 import com.pedromcarrion.hexagonalsample.domain.ad.AdRepository;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 
 public class InMemoryAdRepository implements AdRepository {
 
-    private final ArrayList<Ad> ads;
+    private final HashMap<AdId, Ad> ads;
 
     public InMemoryAdRepository() {
-        ads = new ArrayList<>();
+        ads = new HashMap<>();
     }
 
     @Override
     public Optional<Ad> find(AdId adId) {
 
-        return ads.stream().filter(ad -> ad.getId() == adId).findFirst();
+        if (ads.containsKey(adId)) {
+            return Optional.of(ads.get(adId));
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public void save(Ad ad) {
+        ads.put(ad.getId(), ad);
     }
 }

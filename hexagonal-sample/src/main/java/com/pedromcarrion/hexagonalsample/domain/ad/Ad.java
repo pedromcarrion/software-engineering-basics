@@ -4,7 +4,7 @@ public class Ad {
 
     private final AdId id;
     private final String title;
-    private final AdStatus status;
+    private AdStatus status;
 
     public Ad(AdId id, String title) {
         this.id = id;
@@ -18,5 +18,13 @@ public class Ad {
 
     public String getTitle() {
         return title;
+    }
+
+    public AdStatus getStatus() {
+        return status;
+    }
+
+    public void changeStatus(AdStatus newAdStatus) {
+        this.status = newAdStatus;
     }
 }

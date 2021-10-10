@@ -21,7 +21,7 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public ChangeAdStatusUseCase changeAdStatusUseCase(){
-        return new ChangeAdStatusUseCase();
+    public ChangeAdStatusUseCase changeAdStatusUseCase(AdRepository adRepository){
+        return new ChangeAdStatusUseCase(adRepository);
     }
 }
