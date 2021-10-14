@@ -1,6 +1,8 @@
-package com.pedromcarrion.hexagonalsample.application.ad;
+package com.pedromcarrion.hexagonalsample.unittests.application.ad;
 
 
+import com.pedromcarrion.hexagonalsample.application.ad.ChangeAdStatusCommand;
+import com.pedromcarrion.hexagonalsample.application.ad.ChangeAdStatusUseCase;
 import com.pedromcarrion.hexagonalsample.domain.ad.Ad;
 import com.pedromcarrion.hexagonalsample.domain.ad.AdId;
 import com.pedromcarrion.hexagonalsample.domain.ad.AdRepository;

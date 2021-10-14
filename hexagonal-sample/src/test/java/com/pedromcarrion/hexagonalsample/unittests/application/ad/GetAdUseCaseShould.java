@@ -1,5 +1,9 @@
-package com.pedromcarrion.hexagonalsample.application.ad;
+package com.pedromcarrion.hexagonalsample.unittests.application.ad;
 
+import com.pedromcarrion.hexagonalsample.application.ad.AdDto;
+import com.pedromcarrion.hexagonalsample.application.ad.AdDtoMapper;
+import com.pedromcarrion.hexagonalsample.application.ad.GetAdQuery;
+import com.pedromcarrion.hexagonalsample.application.ad.GetAdUseCase;
 import com.pedromcarrion.hexagonalsample.domain.ad.Ad;
 import com.pedromcarrion.hexagonalsample.domain.ad.AdId;
 import com.pedromcarrion.hexagonalsample.domain.ad.AdRepository;

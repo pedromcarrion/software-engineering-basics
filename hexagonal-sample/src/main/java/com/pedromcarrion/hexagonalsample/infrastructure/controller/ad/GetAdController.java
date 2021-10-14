@@ -3,6 +3,7 @@ package com.pedromcarrion.hexagonalsample.infrastructure.controller.ad;
 import com.pedromcarrion.hexagonalsample.application.ad.AdDto;
 import com.pedromcarrion.hexagonalsample.application.ad.GetAdQuery;
 import com.pedromcarrion.hexagonalsample.application.ad.GetAdUseCase;
+import com.pedromcarrion.hexagonalsample.domain.ad.AdNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,8 @@ public class GetAdController {
             GetAdQuery getAdQuery = new GetAdQuery(id);
             AdDto adDto = getAdUseCase.execute(getAdQuery);
             return ResponseEntity.ok(adResponseMapper.map(adDto));
+        } catch (AdNotFoundException anyException) {
+            return ResponseEntity.notFound().build();
         } catch (Exception anyException) {
             //TODO Log with id
             return ResponseEntity.internalServerError().build();

@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: "jdbc:postgresql://${database.host}:${database.port}/${database.name}"
+    username: "${database.username}"
+    password: "${database.password}"
+    driver-class-name: "org.postgresql.Driver"
+database:
+  host: "localhost"
+  port: 5432
+  name: "hexagonalsample"
+  username: "hexagonalsample"
+  password: "hexagonalsample"
